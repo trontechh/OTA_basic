@@ -18,17 +18,17 @@
 #include <ArduinoOTA.h>
 #include <EEPROM.h>
 
-long cv = 210519 ;
+long cv = 1 ;
 
-#define WIFI_CONNECT_SSID ""        // To edit for your own code.
-#define WIFI_CONNECT_PSWD ""        // To edit for your own code.
+#define WIFI_CONNECT_SSID "SpectrumSetup-13"        // To edit for your own code.
+#define WIFI_CONNECT_PSWD "reasonanchor189"        // To edit for your own code.
 #define WIFI_CONNECT_WAIT_TIME  500
 #define WIFI_CONNECT_WAIT_LIMIT 20
 WiFiMulti wm ;
 
-String otaDirURL      = "http://SERVER_ADDRESS/DIRECTORY/" ; // To edit for your own code.
+String otaDirURL      = "http://192.168.1.254/htdocs/" ; // To edit for your own code.
 String otaCheckURL    = otaDirURL + "otaCheck.php" ;
-String otaBinFilename = "YOUR_BINARY_FILE" ;                 // To edit for your own code.
+String otaBinFilename = "1" ;                 // To edit for your own code.
 String otaBinURL      = otaDirURL + otaBinFilename ;
 
 #define EEPROM_ID_STR      "OTA_BASIC"
@@ -141,7 +141,7 @@ void OTA_Update(void)
 void setup()
 {
   Serial.begin(115200) ;
-  Serial.println("\n<<< ESP32 OTA basic - Booting >>>");
+  Serial.println("\n<<< ESP32 OTA basic - Booting v1 >>>");
 
   EEPROM.begin(EEPROM_SIZE) ;
   EEPROM_WriteData() ;
